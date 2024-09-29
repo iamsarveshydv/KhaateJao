@@ -31,14 +31,18 @@ const Restaurantcard = (props) => {
    //const {resName,cuisine,avgrating,time} = props;
    const { resData } = props;
 
+  //  optional chaining
+  const {cloudinaryImageId,name,cuisines,avgRating,costForTwo} = resData?.info
+  const{deliveryTime} = resData?.info?.sla
+
     return (
         <div className="res-card" style={{background:"#f0f0f0"}}>
-            <img className="res-logo" alt="res-logo" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+ resData.info.cloudinaryImageId} />
-            <h3>{resData.info.name}</h3>
-            <h5>{resData.info.cuisines.join(",")}</h5>
-            <h5>{resData.info.avgRating}</h5>
-            <h5>{resData.info.costForTwo} </h5>
-            <h5>{resData.info.sla.deliveryTime} mins</h5>
+            <img className="res-logo" alt="res-logo" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+ cloudinaryImageId} />
+            <h3>{name}</h3>
+            <h5>{cuisines.join(",")}</h5>
+            <h5>{avgRating}</h5>
+            <h5>{costForTwo} </h5>
+            <h5>{deliveryTime} mins</h5>
         </div>
 
     );
