@@ -27,16 +27,16 @@ const Header = () => {
     );
 };
 
-const Restaurantcard = (props) => {
-// props is just javascript object
+const Restaurantcard = ({resName,cuisine,avgrating,time}) => {
+   //const {resName,cuisine,avgrating,time} = props;
 
     return (
         <div className="res-card" style={{background:"#f0f0f0"}}>
             <img className="res-logo" alt="res-logo" src={biryaani}  />
-            <h3>{props.resName}</h3>
-            <h4>{props.cuisine}</h4>
-            <h4>{props.avgrating}</h4>
-            <h4>{props.time}</h4>
+            <h3>{resName}</h3>
+            <h4>{cuisine}</h4>
+            <h4>{avgrating}</h4>
+            <h4>{time}</h4>
         </div>
 
     );
