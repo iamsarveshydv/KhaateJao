@@ -6,79 +6,73 @@ import biryaani from './image/biryaani.jpg';
 //Header Component
 const Header = () => {
 
-    return (
-        <div className="header">
-            <div className="logo-container">
-                {/* <img id="img" src="https://th.bing.com/th?id=OIP.1I-74Hd21xHLUwXyXa3aOQHaF1&w=281&h=221&c=8&rs=1&qlt=90&o=6&dpr=1.7&pid=3.1&rm=2"/> */}
-                <img id="img" src={myImage} />
-            </div>
+  return (
+    <div className="header">
+      <div className="logo-container">
+        {/* <img id="img" src="https://th.bing.com/th?id=OIP.1I-74Hd21xHLUwXyXa3aOQHaF1&w=281&h=221&c=8&rs=1&qlt=90&o=6&dpr=1.7&pid=3.1&rm=2"/> */}
+        <img id="img" src={myImage} />
+      </div>
 
-            <div className="nav-items">
-                <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>contact</li>
-                    <li>logout</li>
+      <div className="nav-items">
+        <ul>
+          <li>Home</li>
+          <li>About Us</li>
+          <li>contact</li>
+          <li>logout</li>
 
-                </ul>
-            </div>
-        </div>
+        </ul>
+      </div>
+    </div>
 
-    );
+  );
 };
 
 const Restaurantcard = (props) => {
-   //const {resName,cuisine,avgrating,time} = props;
-   const { resData } = props;
+  //const {resName,cuisine,avgrating,time} = props;
+  const { resData } = props;
 
   //  optional chaining
-  const {cloudinaryImageId,name,cuisines,avgRating,costForTwo} = resData?.info
-  const{deliveryTime} = resData?.info?.sla
+  const { cloudinaryImageId, name, cuisines, avgRating, costForTwo } = resData?.info
+  const { deliveryTime } = resData?.info?.sla
 
-    return (
-        <div className="res-card" style={{background:"#f0f0f0"}}>
-            <img className="res-logo" alt="res-logo" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+ cloudinaryImageId} />
-            <h3>{name}</h3>
-            <h5>{cuisines.join(",")}</h5>
-            <h5>{avgRating}</h5>
-            <h5>{costForTwo} </h5>
-            <h5>{deliveryTime} mins</h5>
-        </div>
+  return (
+    <div className="res-card" style={{ background: "#f0f0f0" }}>
+      <img className="res-logo" alt="res-logo" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId} />
+      <h3>{name}</h3>
+      <h5>{cuisines.join(",")}</h5>
+      <h5>{avgRating}</h5>
+      <h5>{costForTwo} </h5>
+      <h5>{deliveryTime} mins</h5>
+    </div>
 
-    );
+  );
 
 };
 
 
 const Body = () => {
 
-    return (
-        <div className="body">
-            <div className="search">search</div>
-            <div className="res-container">               
-            < Restaurantcard  resData ={ resObj[0] } />
-            < Restaurantcard  resData ={ resObj[1] } />
-            < Restaurantcard  resData ={ resObj[2] } />
-            < Restaurantcard  resData ={ resObj[3] } />
-            < Restaurantcard  resData ={ resObj[4] } />
-            < Restaurantcard  resData ={ resObj[5] } />
-            < Restaurantcard  resData ={ resObj[6] } />
-            < Restaurantcard  resData ={ resObj[7] } />
-            < Restaurantcard  resData ={ resObj[8] } />
-            < Restaurantcard  resData ={ resObj[10] } />
-            < Restaurantcard  resData ={ resObj[11] } />
-            < Restaurantcard  resData ={ resObj[12] } />
-            < Restaurantcard  resData ={ resObj[9] } />
-           
-            </div>
-        </div>
+  return (
+    <div className="body">
+      <div className="search">search</div>
+      <div className="res-container">
+        {
+// Inside res-container returning piece of JSX code for each restaurant 
+          resObjList.map((restaurant) => (
+            <Restaurantcard resData={restaurant} />
+          ))
 
-    );
+        }
+
+      </div>
+    </div>
+
+  );
 };
 
 
 //its is simple Javascript opject
-const resObj = [
+const resObjList = [
   {
 
     "info": {
@@ -1316,17 +1310,17 @@ const resObj = [
     }
   }
 ]
-    
-    
+
+
 
 
 //Functional component
 const AppLayout = () => {
 
-    return (<div className="app">
-        <Header />
-        <Body />
-    </div>)
+  return (<div className="app">
+    <Header />
+    <Body />
+  </div>)
 
 };
 
