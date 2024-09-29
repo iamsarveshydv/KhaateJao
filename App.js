@@ -59,7 +59,7 @@ const Body = () => {
         {
 // Inside res-container returning piece of JSX code for each restaurant 
           resObjList.map((restaurant) => (
-            <Restaurantcard resData={restaurant} />
+            <Restaurantcard key={restaurant.info.id} resData={restaurant} />
           ))
 
         }
