@@ -33,10 +33,10 @@ const Restaurantcard = (props) => {
     return (
         <div className="res-card" style={{background:"#f0f0f0"}}>
             <img className="res-logo" alt="res-logo" src={biryaani}  />
-            <h3>Meghna Foods</h3>
-            <h4>Biryaani,North India,Asian</h4>
-            <h4>4.5</h4>
-            <h4>30 mins</h4>
+            <h3>{props.resName}</h3>
+            <h4>{props.cuisine}</h4>
+            <h4>{props.avgrating}</h4>
+            <h4>{props.time}</h4>
         </div>
 
     );
@@ -50,12 +50,12 @@ const Body = () => {
         <div className="body">
             <div className="search">search</div>
             <div className="res-container">               
-            < Restaurantcard  />
-            < Restaurantcard  />
-            < Restaurantcard  />
-            < Restaurantcard  />
-            < Restaurantcard  />
-            < Restaurantcard  />
+            < Restaurantcard  resName="Meghna Foods" cuisine="Biryaani,North Indian,Asian" avgrating="4.5" time="30 mins" />
+            < Restaurantcard  resName="KFC" cuisine="Burger, Fries, coke"  avgrating="4.5" time="30 mins"/>
+            < Restaurantcard  resName="Namaste" cuisine="Biryaani,North Indian,Asian" avgrating="4.5" time="30 mins" />
+            < Restaurantcard  resName="Levels" cuisine="Burger, Fries, coke"  avgrating="4.5" time="30 mins"/>
+            < Restaurantcard  resName="Story's" cuisine="Biryaani,North Indian,Asian" avgrating="4.5" time="30 mins" />
+            < Restaurantcard  resName="Dominos" cuisine="Burger, Fries, coke"  avgrating="4.5" time="30 mins"/>
             </div>
         </div>
 
